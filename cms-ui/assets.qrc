@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/assets">
+        <file alias="qmldir">assets/qmldir</file>
+        <file alias="Style.qml">assets/Style.qml</file>
+        <file alias="fa-brands.ttf">assets/fa-brands-400.ttf</file>
+        <file alias="fa-regular.ttf">assets/fa-regular-400.ttf</file>
+        <file alias="fa-solid.ttf">assets/fa-solid-900.ttf</file>
+    </qresource>
+</RCC>
