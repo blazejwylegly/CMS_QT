@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_cms__controllers__MasterController_t {
-    QByteArrayData data[6];
-    char stringdata0[175];
+    QByteArrayData data[8];
+    char stringdata0[233];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -37,14 +37,18 @@ QT_MOC_LITERAL(1, 35, 17), // "ui_initialMessage"
 QT_MOC_LITERAL(2, 53, 23), // "ui_navigationController"
 QT_MOC_LITERAL(3, 77, 39), // "cms::controllers::NavigationC..."
 QT_MOC_LITERAL(4, 117, 20), // "ui_commandController"
-QT_MOC_LITERAL(5, 138, 36) // "cms::controllers::CommandCont..."
+QT_MOC_LITERAL(5, 138, 36), // "cms::controllers::CommandCont..."
+QT_MOC_LITERAL(6, 175, 18), // "ui_loginController"
+QT_MOC_LITERAL(7, 194, 38) // "cms::controllers::LoginViewCo..."
 
     },
     "cms::controllers::MasterController\0"
     "ui_initialMessage\0ui_navigationController\0"
     "cms::controllers::NavigationController*\0"
     "ui_commandController\0"
-    "cms::controllers::CommandController*"
+    "cms::controllers::CommandController*\0"
+    "ui_loginController\0"
+    "cms::controllers::LoginViewController*"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,7 +59,7 @@ static const uint qt_meta_data_cms__controllers__MasterController[] = {
        0,       // classname
        0,    0, // classinfo
        0,    0, // methods
-       3,   14, // properties
+       4,   14, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
@@ -65,6 +69,7 @@ static const uint qt_meta_data_cms__controllers__MasterController[] = {
        1, QMetaType::QString, 0x00095401,
        2, 0x80000000 | 3, 0x00095409,
        4, 0x80000000 | 5, 0x00095409,
+       6, 0x80000000 | 7, 0x00095409,
 
        0        // eod
 };
@@ -76,6 +81,8 @@ void cms::controllers::MasterController::qt_static_metacall(QObject *_o, QMetaOb
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
         case 2:
             *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< cms::controllers::CommandController* >(); break;
+        case 3:
+            *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< cms::controllers::LoginViewController* >(); break;
         case 1:
             *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< cms::controllers::NavigationController* >(); break;
         }
@@ -90,6 +97,7 @@ void cms::controllers::MasterController::qt_static_metacall(QObject *_o, QMetaOb
         case 0: *reinterpret_cast< QString*>(_v) = _t->initialMessage(); break;
         case 1: *reinterpret_cast< cms::controllers::NavigationController**>(_v) = _t->navigationController(); break;
         case 2: *reinterpret_cast< cms::controllers::CommandController**>(_v) = _t->commandController(); break;
+        case 3: *reinterpret_cast< cms::controllers::LoginViewController**>(_v) = _t->loginController(); break;
         default: break;
         }
     } else if (_c == QMetaObject::WriteProperty) {
@@ -132,17 +140,17 @@ int cms::controllers::MasterController::qt_metacall(QMetaObject::Call _c, int _i
     if (_c == QMetaObject::ReadProperty || _c == QMetaObject::WriteProperty
             || _c == QMetaObject::ResetProperty || _c == QMetaObject::RegisterPropertyMetaType) {
         qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::QueryPropertyDesignable) {
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::QueryPropertyScriptable) {
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::QueryPropertyStored) {
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::QueryPropertyEditable) {
-        _id -= 3;
+        _id -= 4;
     } else if (_c == QMetaObject::QueryPropertyUser) {
-        _id -= 3;
+        _id -= 4;
     }
 #endif // QT_NO_PROPERTIES
     return _id;

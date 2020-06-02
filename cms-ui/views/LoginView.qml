@@ -1,12 +1,26 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import assets 1.0
+import CMS 1.0
 
 Item {
 
     id: loginView
     signal loginClicked(string textField_usr, string textField_pwd);
+    signal loginSuccessful();
+
+    anchors.centerIn: parent
+
     objectName: "loginView"
+
+    Connections {
+        target: loginController
+        onLoginSuccessful : {
+            loginSuccessful()
+        }
+        onLoginFailed: {console.log("Failed") }
+    }
+
 
     GroupBox {
         id: loginGroupBox
@@ -98,9 +112,11 @@ Item {
             text: qsTr("Proceed")
 
             onClicked: {
-                loginClicked(username_textField.text, password_textInput.text)
+                loginController.loginButtonClicked(username_textField.text, password_textInput.text)
             }
         }
+
+
 
 
     }

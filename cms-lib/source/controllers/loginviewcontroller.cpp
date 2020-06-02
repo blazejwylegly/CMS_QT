@@ -3,13 +3,14 @@
 namespace cms {
 namespace controllers {
 
-bool LoginViewController::loginButtonClicked(QString user, QString pwd)
+void LoginViewController::loginButtonClicked(QString user, QString pwd)
 {
-        std::cerr << "loginButtonClicked " << std::endl;
-        return cms::administration::Clinic::login(user.toStdString(), pwd.toStdString());
+    std::cerr << "loginButtonClicked " << std::endl;
+            if(cms::administration::Clinic::login(user.toStdString(), pwd.toStdString())){
+                emit loginSuccessful(); return;
+            }
+            emit loginFailed();
+
 }
-
-
-
 }
 }

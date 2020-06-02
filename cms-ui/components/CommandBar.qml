@@ -51,4 +51,5 @@ Item {
     Component.onCompleted: {
         console.log("Loading command bar completed")
     }
+
 }

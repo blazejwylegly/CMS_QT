@@ -9,6 +9,7 @@
 #include <cms-lib_global.h>
 #include <controllers/navigation-controller.h>
 #include <controllers/commandcontroller.h>
+#include <controllers/loginviewcontroller.h>
 
 namespace cms{
 namespace controllers{
@@ -21,6 +22,7 @@ class CMSLIBSHARED_EXPORT MasterController : public QObject
     Q_PROPERTY(QString ui_initialMessage READ initialMessage CONSTANT)
     Q_PROPERTY(cms::controllers::NavigationController* ui_navigationController READ navigationController CONSTANT )
     Q_PROPERTY(cms::controllers::CommandController* ui_commandController READ commandController CONSTANT)
+    Q_PROPERTY(cms::controllers::LoginViewController* ui_loginController READ loginController CONSTANT)
 public:
 
     explicit MasterController(QObject *parent = nullptr);
@@ -28,6 +30,7 @@ public:
 
     NavigationController* navigationController();
     CommandController* commandController();
+    LoginViewController* loginController();
 
     const QString& initialMessage() const;
 

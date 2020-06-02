@@ -36,11 +36,15 @@ int main(int argc, char *argv[])
     engine.addImportPath("qrc:/");
 
     engine.rootContext()->setContextProperty("masterController", &masterController);
-    //engine.rootContext()->setContextProperty("ui_navigationController", masterController.navigationController());
 
     engine.load(QUrl(QStringLiteral("qrc:/views/MasterView.qml")));
 
     cms::controllers::LoginViewController lvc(&engine);
+    engine.rootContext()->setContextProperty("loginController", &lvc);
+
+//    QObject* loginView = engine.rootObjects().first()->findChild<QObject*>("loginView");
+
+//    loginView->setProperty("ui_loginController", QVariant::fromValue(masterController.loginController()));
 
 //    const QUrl url(QStringLiteral("qrc:/views/MasterView.qml"));
 //    QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
