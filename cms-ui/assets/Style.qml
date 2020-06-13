@@ -58,4 +58,14 @@ Item {
     readonly property real widthCommandButton: 80
     readonly property real heightCommandButton: widthCommandButton
 
+    //TextFields and Controlls colorProperites
+    readonly property color colorItemBorder: "#65d1d1"
+
+    //TextFields and Buttons text styling properties
+    readonly property int pixelSizeTextFieldInput: 12
+    readonly property int pixelSizeTextLabel: 18
+
+    //TextFields and Controlls shaping properties
+    readonly property int widthItemBorder: 2
+    readonly property int radiusItemBorder: 20
 }

@@ -66,7 +66,7 @@ static const uint qt_meta_data_cms__controllers__CommandController[] = {
     QMetaType::Void,
 
  // properties: name, type, flags
-       3, 0x80000000 | 4, 0x00095009,
+       3, 0x80000000 | 4, 0x00095409,
 
        0        // eod
 };

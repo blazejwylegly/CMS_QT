@@ -6,6 +6,8 @@
 #include <QString>
 
 
+#include <QQmlContext>
+
 #include <cms-lib_global.h>
 #include <controllers/navigation-controller.h>
 #include <controllers/commandcontroller.h>

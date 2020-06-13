@@ -12,20 +12,12 @@ class Clinic
 {
 private:
     static Organiser organiser;
-    static std::unique_ptr<AccountData> currentUser;
+    static std::shared_ptr<AccountData> currentUser;
 public:
     Clinic();
     static void initialize();
-
-    static bool login(const std::string& login, const std::string& pwd){
-        std::cerr << login << std::endl;
-        std::cerr << pwd << std::endl;
-        currentUser = organiser.login(login, pwd);
-        if(currentUser != nullptr){
-            std::cerr << "Logged in" << std::endl;
-        }
-        return (bool)currentUser;
-    }
+    static bool login(const std::string& login, const std::string& pwd);
+    static bool isAdminLogged();
 };
 
 }

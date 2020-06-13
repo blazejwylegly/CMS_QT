@@ -16,7 +16,7 @@ class CMSLIBSHARED_EXPORT CommandController : public QObject{
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<cms::framework::Command>
                ui_createPatientViewContextCommands READ
-               ui_createPatientViewContextCommands)
+               ui_createPatientViewContextCommands CONSTANT)
 public:
     explicit CommandController(QObject* _parent = nullptr);
     ~CommandController();

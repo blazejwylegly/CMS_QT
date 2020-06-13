@@ -4,14 +4,14 @@ import QtQuick.Controls 2.2
 import assets 1.0
 import components 1.0
 
-Window {
+Item {
 
     id: masterView
 
     visible: true
-    width: 640
-    height: 480
-    title: qsTr("Clinic Management System")
+    width: parent.width
+    height: parent.height
+    //title: qsTr("Clinic Management System")
 
     property alias stack: contentFrame
 
@@ -53,36 +53,7 @@ Window {
 
         clip: true
 
-        initialItem: Qt.resolvedUrl("qrc:/views/SplashView.qml")
+        initialItem: Qt.resolvedUrl("qrc:/views/DashboardView.qml")
     }
-
-
-//    Loader {
-//        id: itemLoader
-//        anchors{
-//            top: parent.top
-//            bottom: parent.bottom
-//            right: contentFrame.left
-//            left: parent.left
-//        }
-
-//    }
-
-//    LoginView {
-//        id: loginView;
-//        onLoginSuccessful: {
-//            itemLoader.source = "qrc:/components/NavigationBar.qml"
-//            loginView.visible = false
-//        }
-
-
-
-//    }
-
-    Component.onCompleted: {
-       contentFrame.replace("qrc:/views/LoginView.qml")
-    }
-
-
 
 }

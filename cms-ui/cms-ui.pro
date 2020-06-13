@@ -27,7 +27,8 @@ SOURCES += source\main.cpp
 
 RESOURCES += views.qrc \
     assets.qrc \
-    components.qrc
+    components.qrc \
+    tabs.qrc
 
 #Libs is variable used to add referenced libraries to the project
 #-L denotes a directory, -l denotes library file

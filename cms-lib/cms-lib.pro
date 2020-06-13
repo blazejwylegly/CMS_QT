@@ -35,17 +35,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES +=  \
     source/administration/Clinic.cpp \
     source/administration/Organiser.cpp \
-    source/controllers/commandcontroller.cpp \
     source/controllers/loginviewcontroller.cpp \
-    source/controllers/mastercontroller.cpp \
+    source/controllers/maincontroller.cpp \
+    source/controllers/patientadditioncontroller.cpp \
+    source/controllers/userviewcontroller.cpp \
     source/data-mngmnt/AccountDAO.cpp \
     source/data-mngmnt/DoctorDAO.cpp \
     source/data-mngmnt/PatientDAO.cpp \
     source/data-mngmnt/SQLAdapter.cpp \
     source/data-mngmnt/SQLManager.cpp \
-    source/data/datadecorator.cpp \
-    source/data/stringdecorator.cpp \
-    source/framework/command.cpp \
     source/models/AccountData.cpp \
     source/models/AppUser.cpp \
     source/models/Doctor.cpp \
@@ -61,19 +59,16 @@ SOURCES +=  \
 HEADERS +=  source/cms-lib_global.h \
             source/administration/Clinic.h \
             source/administration/Organiser.h \
-            source/controllers/commandcontroller.h \
             source/controllers/loginviewcontroller.h \
-            source/controllers/mastercontroller.h \
-            source/controllers/navigation-controller.h \
+            source/controllers/maincontroller.h \
+            source/controllers/patientadditioncontroller.h \
+            source/controllers/userviewcontroller.h \
             source/data-mngmnt/AccountDAO.h \
             source/data-mngmnt/DAO.h \
             source/data-mngmnt/DoctorDAO.h \
             source/data-mngmnt/PatientDAO.h \
             source/data-mngmnt/SQLAdapter.h \
             source/data-mngmnt/SQLManager.h \
-            source/data/datadecorator.h \
-            source/data/stringdecorator.h \
-            source/framework/command.h \
             source/models/AccountData.h \
             source/models/AppUser.h \
             source/models/Doctor.h \

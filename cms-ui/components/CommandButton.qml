@@ -28,7 +28,7 @@ Item {
                 verticalCenterOffset: -10
             }
             font {
-                family: Style.fontAwesomeSolid
+                family: Style.solid
                 pixelSize: Style.pixelSizeCommandBarIcon
             }
 
@@ -78,10 +78,6 @@ Item {
             }
 
         ]
-    }
-
-    Component.onCompleted: {
-        console.log("Loading command button completed");
     }
 
 }

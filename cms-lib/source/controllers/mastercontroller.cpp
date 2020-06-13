@@ -8,7 +8,7 @@ public:
     Implementation(MasterController* _masterController) : masterController(_masterController){
         navigationController = new NavigationController(masterController);
         commandController = new CommandController(masterController);
-        loginController = new LoginViewController(masterController);
+        //loginController = new LoginViewController(masterController);
     }
 
     MasterController* masterController {nullptr};

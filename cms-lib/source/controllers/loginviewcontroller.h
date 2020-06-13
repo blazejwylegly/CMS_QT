@@ -8,6 +8,8 @@
 
 #include <administration/Clinic.h>
 
+#include "userviewcontroller.h"
+
 namespace cms{
 namespace controllers{
 
@@ -15,26 +17,26 @@ class CMSLIBSHARED_EXPORT LoginViewController : public QObject{
     Q_OBJECT
 private:
 
+    QObject* rootObject {nullptr};
     QObject* loginButton {nullptr};
 
+    QQmlApplicationEngine* engine {nullptr};
+
+    UserViewController* uvc {nullptr};
+
+    void loadAdminView();
+    void loadUserView();
 public:
 
-    explicit LoginViewController(QObject* _parent = nullptr) : QObject(_parent) {}
-
-    LoginViewController(QQmlApplicationEngine* engine){
-        QObject* loginView = engine->rootObjects().first()->findChild<QObject*>("loginView");
-        std::cerr << "Login view: " << loginView << std::endl;
-        loginButton = loginView->findChild<QObject*>("proceed_button");
-
-        QObject::connect(loginView, SIGNAL(loginClicked(QString, QString)), this, SLOT(loginButtonClicked(QString, QString)));
-    }
-
+    LoginViewController(QQmlApplicationEngine* _engine);
+    ~LoginViewController();
 
 public slots:
     void loginButtonClicked(QString user, QString pwd);
 
 signals:
-    void loginSuccessful();
+    void userLoginSuccessful();
+    void adminLoginSuccessful();
     void loginFailed();
 };
 

@@ -1,24 +1,27 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import assets 1.0
-import CMS 1.0
+
 
 Item {
 
     id: loginView
     signal loginClicked(string textField_usr, string textField_pwd);
     signal loginSuccessful();
-
-    anchors.centerIn: parent
+    signal loginFailed();
 
     objectName: "loginView"
 
     Connections {
         target: loginController
-        onLoginSuccessful : {
+        onAdminLoginSuccessful : {
             loginSuccessful()
         }
-        onLoginFailed: {console.log("Failed") }
+        onUserLoginSuccessful : {
+            loginSuccessful()
+        }
+
+        onLoginFailed: { loginFailed() }
     }
 
 
@@ -26,18 +29,27 @@ Item {
         id: loginGroupBox
         anchors.centerIn: parent
         width: 300
-        height: 300
+        height: 304
+        background: Rectangle {
+            color: "transparent"
+            border.color: "transparent"
+        }
 
-        //Username
+        //Username label
         Text {
             id: username_label
-            x: 0
-            y: 96
             width: 70
             height: 16
             text: qsTr("Username")
-            font.pixelSize: 12
 
+            anchors.left: parent.left
+            anchors.leftMargin: 0
+            anchors.top: parent.top
+            anchors.topMargin: 95
+
+            font.pixelSize: Style.pixelSizeTextLabel
+
+        //Username input
         }
 
         TextField {
@@ -50,15 +62,17 @@ Item {
             width: 200
             height: 36
 
+            font.pixelSize: Style.pixelSizeTextFieldInput
+
             background: Rectangle {
-                border.width: 2
-                border.color: "#00ffff"
-                radius: 20
+                border.width: Style.widthItemBorder
+                border.color: Style.colorItemBorder
+                radius: Style.radiusItemBorder
             }
 
         }
 
-        //Password
+        //Password label
         Text {
             id: password_label
 
@@ -68,11 +82,11 @@ Item {
             height: 16
 
             text: qsTr("Password")
-            font.pixelSize: 12
+            font.pixelSize: Style.pixelSizeTextLabel
 
 
         }
-
+        //Password input
         TextField {
             id: password_textInput
 
@@ -83,13 +97,13 @@ Item {
 
             placeholderText: qsTr("Enter password")
             echoMode: TextInput.Password
-            passwordCharacter: "*"
-            font.pixelSize: 12
+
+            font.pixelSize: Style.pixelSizeTextFieldInput
 
             background: Rectangle {
-                border.width: 2
-                border.color: "#00eeee"
-                radius: 20
+                border.width: Style.widthItemBorder
+                border.color: Style.colorItemBorder
+                radius: Style.radiusItemBorder
             }
 
         }
@@ -104,13 +118,13 @@ Item {
             height: 30
 
             background: Rectangle {
-                border.width: 2
-                border.color: "#00ffff"
-                radius: 20
+                border.width: Style.widthItemBorder
+                border.color: Style.colorItemBorder
+                radius: Style.radiusItemBorder
             }
 
             text: qsTr("Proceed")
-
+            font.pixelSize: Style.pixelSizeTextFieldInput
             onClicked: {
                 loginController.loginButtonClicked(username_textField.text, password_textInput.text)
             }
@@ -126,6 +140,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+    D{i:0;autoSize:true;height:480;width:640}D{i:4;anchors_x:0;anchors_y:96}
 }
 ##^##*/

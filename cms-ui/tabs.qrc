@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/tabs">
+        <file alias="PatientAddition.qml">tabs/PatientAddition.qml</file>
+        <file alias="qmldir">tabs/qmldir</file>
+    </qresource>
+</RCC>
