@@ -7,5 +7,6 @@
         <file alias="LoginView.qml">views/LoginView.qml</file>
         <file alias="main.qml">views/main.qml</file>
         <file alias="UserView.qml">views/UserView.qml</file>
+        <file alias="AdminView.qml">views/AdminView.qml</file>
     </qresource>
 </RCC>

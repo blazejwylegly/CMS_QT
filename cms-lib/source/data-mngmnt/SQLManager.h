@@ -20,14 +20,15 @@ private:
     static QSqlDatabase db;
 
     static void establishConnection(){
-        //db = QSqlDatabase::addDatabase("QMYSQL");
+
         db.setHostName("127.0.0.1");
         db.setDatabaseName("clinic");
         db.setUserName("root");
         db.setPassword("root");
         db.setPort(3306);
 
-        if(db.open()){
+        db.open();
+        if(db.isOpen()){
             std::cout<<"Connection successful"<<std::endl;
         }
         else{
@@ -44,7 +45,7 @@ public:
     }
 
     static bool executeRemoval(const char* query) {
-        std::cout << "Executing query: " << query << std::endl;
+//        std::cout << "Executing query: " << query << std::endl;
         establishConnection();
 
         if (db.isOpen()) {
@@ -61,7 +62,7 @@ public:
     Executes insert query, returns id of added recod ONLY in case insert succeded
     */
     static int executeInsert(const char* query) {
-         std::cout << "Executing query: " << query << std::endl;
+//         std::cout << "Executing query: " << query << std::endl;
 
          establishConnection();
 

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.12
 import QtQuick.Controls 2.13
 import QtQuick.Window 2.13
 
@@ -23,9 +23,14 @@ Window {
     LoginView {
         id:loginView
         anchors.fill: parent
-        onLoginSuccessful: {
+        onUserLoginSuccessful: {
             stackView.replace("qrc:/views/UserView.qml");
         }
+
+        onAdminLoginSuccessful: {
+            stackView.replace("qrc:/views/AdminView.qml");
+        }
+
 
         onLoginFailed: {
             console.log("Login failed")

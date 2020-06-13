@@ -13,7 +13,7 @@ Item {
     property alias inputText: textField.text
     property string titleText: "Title"
     property string placeholder: "placeholder"
-    //property bool isHashed: false
+
     property alias color: textField.color
     property alias validator: textField.validator
     property alias inputMask: textField.inputMask
@@ -23,27 +23,9 @@ Item {
     property alias activeFocusOnPress: textField.activeFocusOnPress
     property alias inputLeftPadding: textField.leftPadding
 
-//    function setHashed(bool) {
-//        if(bool){
-//            textField.echoMode = TextInput.Password
-//        }
-//        else {
-//            textField.echoMode = TextInput.Normal
-//        }
-//    }
-
     function clear() {
         textField.clear();
     }
-
-//    Component.onCompleted: {
-//        if(isHashed) {
-//            setHashed(true);
-//        }
-//        else {
-//            setHashed(false);
-//        }
-//    }
 
     states: [
         State {

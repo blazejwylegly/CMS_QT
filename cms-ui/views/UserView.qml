@@ -30,11 +30,6 @@ Item {
     }
 
 
-//    NavigationBar {
-//        id: navigationBar
-//    }
-
-
     PatientAddition {
         id: patientAddition
 

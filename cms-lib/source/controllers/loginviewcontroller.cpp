@@ -3,12 +3,16 @@
 namespace cms {
 namespace controllers {
 
+
+
 void LoginViewController::loginButtonClicked(QString user, QString pwd)
 {
-    if(cms::administration::Clinic::login(user.toStdString(), pwd.toStdString())){
-        loadUserView(); return;
-        if(cms::administration::Clinic::isAdminLogged()) {  return; }
-        else { emit userLoginSuccessful(); return; }
+    using cms::administration::Clinic;
+    if(Clinic::login(user.toStdString(), pwd.toStdString())){
+
+        if(Clinic::isAdminLogged()) { loadAdminView(); }
+        else { loadUserView(); }
+        return;
     }
     emit loginFailed();
 
@@ -20,7 +24,6 @@ LoginViewController::LoginViewController(QQmlApplicationEngine* _engine){
     this->rootObject = engine->rootObjects().first()->findChild<QObject*>("loginView");
 
     loginButton = rootObject->findChild<QObject*>("proceed_button");
-    std::cerr << loginButton << std::endl;
 
     QObject::connect(rootObject, SIGNAL(loginClicked(QString, QString)), this, SLOT(loginButtonClicked(QString, QString)));
 
@@ -37,8 +40,9 @@ void LoginViewController::loadAdminView(){
 }
 
 void LoginViewController::loadUserView(){
-    //uvc = new UserViewController(engine);
     emit userLoginSuccessful();
+    uvc = new UserViewController(engine);
+
 }
 
 

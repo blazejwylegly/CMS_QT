@@ -192,7 +192,8 @@ Item {
         display: AbstractButton.TextOnly
 
         onClicked: {
-            patientAdditionRequested(firstNameInput.text, secondNameInput.text, surnameInput.text, peselInput.text, docIdInput.text);
+            console.log("Button clicked")
+            patientAdditionRequested(firstNameInput.inputText, secondNameInput.inputText, surnameInput.inputText, peselInput.inputText, docIdInput.inputText);
         }
     }
 

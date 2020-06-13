@@ -1,12 +1,16 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import assets 1.0
-
+import components 1.0
 
 Item {
 
     id: loginView
     signal loginClicked(string textField_usr, string textField_pwd);
+
+    signal userLoginSuccessful();
+    signal adminLoginSuccessful();
+
     signal loginSuccessful();
     signal loginFailed();
 
@@ -14,14 +18,20 @@ Item {
 
     Connections {
         target: loginController
-        onAdminLoginSuccessful : {
-            loginSuccessful()
-        }
-        onUserLoginSuccessful : {
-            loginSuccessful()
+
+        onAdminLoginSuccessful: {
+            adminLoginSuccessful()
         }
 
-        onLoginFailed: { loginFailed() }
+        onUserLoginSuccessful: {
+            userLoginSuccessful()
+        }
+
+        onLoginFailed: {
+            console.log("Failed")
+            infoPopup.message = "Login attempt failed!"
+            infoPopup.open()
+        }
     }
 
 
@@ -131,10 +141,12 @@ Item {
         }
 
 
-
-
     }
 
+    InfoPopup {
+        id: infoPopup
+        anchors.centerIn: parent
+    }
 }
 
 
