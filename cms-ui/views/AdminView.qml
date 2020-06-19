@@ -13,12 +13,22 @@ Item {
 
     signal logOut()
 
+    MenuBar {
+        id: menuBar
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors {
+            top: parent.top
+            left: parent.left
+        }
+    }
+
     Connections {
         //Creating connections component bound to instance of MenuBarController
         //These connections define behaviour for signals sent by target Class
         target: menuBarController
         onGoDashboardView: {
-            contentFrame.replace("qrc:/")
+            contentFrame.replace("qrc:/views/DashboardView.qml")
         }
 
         onLoadPatientAddition: {
@@ -31,15 +41,7 @@ Item {
 
     }
 
-    MenuBar {
-        id: menuBar
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
-        anchors {
-            top: parent.top
-            left: parent.left
-        }
-    }
+
 
 
     StackView {
@@ -52,7 +54,7 @@ Item {
         anchors.leftMargin: 0
 
 
-        initialItem: patientsDisplay
+        initialItem: ("qrc:/views/DashboardView.qml")
 
         PatientAddition {
             id: patientAddition

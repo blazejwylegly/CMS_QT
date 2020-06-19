@@ -8,5 +8,6 @@
         <file alias="main.qml">views/main.qml</file>
         <file alias="UserView.qml">views/UserView.qml</file>
         <file alias="AdminView.qml">views/AdminView.qml</file>
+        <file alias="DashboardView.qml">views/DashboardView.qml</file>
     </qresource>
 </RCC>
