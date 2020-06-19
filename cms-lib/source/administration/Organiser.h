@@ -33,6 +33,7 @@ public:
 	PatientCont getAllPatients();
     int addPatient(const cms::models::Patient& obj);
 	bool removePatient(const int& id);
+    bool removePatient(const std::string &pesel);
 	bool removeAllPatients();
 	bool updatePatient();
 

@@ -15,6 +15,7 @@ public:
 
 	PatientDAO(): DAO("pesel, surname, first_name, second_name, doctor_in_charge_id", "patients") {};
 
+    bool removeWithPesel(const std::string &pesel);
 	//bool add(const SQLAdapter<Patient>& obj) override;
     //bool update(const SQLAdapter<Patient>& oldData, const SQLAdapter<Patient>& newData) override;
     //bool remove(int id) override;

@@ -41,6 +41,18 @@ int Clinic::addPatient(const std::string &firstName,
                        const std::string &pesel,
                        const int &docId){
     if(currentUser) return organiser.addPatient(cms::models::Patient(pesel, surname, firstName, secondName, docId));
+    return -1;
+}
+
+void Clinic::deletePatient(const int &id){
+    if(currentUser){
+        organiser.removePatient(id);
+    }
+}
+
+void Clinic::deletePatient(const std::string &peselNumber)
+{
+    organiser.removePatient(peselNumber);
 }
 
 }

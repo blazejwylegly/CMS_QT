@@ -27,6 +27,8 @@ public:
                           const std::string &surname,
                           const std::string &pesel,
                           const int &docId);
+    static void deletePatient(const int &id);
+    static void deletePatient(const std::string &peselNumber);
 };
 
 }

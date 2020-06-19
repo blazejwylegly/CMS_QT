@@ -21,6 +21,7 @@ private:
     QObject* rootObject {nullptr};
     QObject* searchButton {nullptr};
     QObject* searchBar {nullptr};
+    QObject* deleteButton {nullptr};
 
     void initialize();
     void setConnections();

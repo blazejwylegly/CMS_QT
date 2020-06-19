@@ -2,3 +2,5 @@ module tabs
 PatientAddition 1.0 PatientAddition.qml
 
 PatientsDisplay 1.0 PatientsDisplay.qml
+
+PatientEdition 1.0 PatientEdition.qml

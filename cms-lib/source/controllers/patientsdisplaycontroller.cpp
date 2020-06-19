@@ -17,6 +17,7 @@ PatientsDisplayController::PatientsDisplayController(QQmlApplicationEngine* _eng
 
     this->searchButton = rootObject->findChild<QObject*>("searchButton");
     this->searchBar = rootObject->findChild<QObject*>("searchBar");
+    this->deleteButton = rootObject->findChild<QObject*>("deleteButton");
     setConnections();
 
 }

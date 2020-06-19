@@ -13,8 +13,13 @@ PatientsListModel::~PatientsListModel()
 
 }
 
-void PatientsListModel::deletePatient(){
-
+void PatientsListModel::deletePatient(const int &itemIndex){
+    emit beginResetModel();
+    //Removing object from database
+    Clinic::deletePatient(mPatients.at(itemIndex).pesel.toStdString());
+    //Removing object from model list
+    mPatients.removeAt(itemIndex);
+    emit endResetModel();
 }
 
 void PatientsListModel::editPatient(){
@@ -30,11 +35,15 @@ void PatientsListModel::update(){
     for(auto it = patients.begin(); it != patients.end(); it++){
         const auto ptr = (*it).get();
 
-        QString name = QString::fromStdString(ptr->getFullName()),
-                pesel = QString::fromStdString(ptr->getPesel());
+        QString fullName = QString::fromStdString(ptr->getFullName()),
+                pesel = QString::fromStdString(ptr->getPesel()),
+                firstName = QString::fromStdString(ptr->getFirstName()),
+                secondName = QString::fromStdString(ptr->getSecondName()),
+                surname = QString::fromStdString(ptr->getSurname());
+
         QVariant docId = QVariant(ptr->getDocId());
 
-        addItem(name, pesel, docId);
+        addItem(fullName, pesel, firstName, secondName, surname, docId);
     }
 
     emit endResetModel();
@@ -70,17 +79,21 @@ void PatientsListModel::doSearch(QString searchText){
             std::string pesel = item.pesel.toStdString();
 
             if(std::regex_search(pesel, reg)){
-                itemsFound.append({item.name, item.pesel, item.docId});
+                itemsFound.append({item.fullName, item.pesel,
+                                   item.firstName, item.secondName,
+                                   item.surname,item.docId});
             }
         }
     }else {
         //Filtering list with patients surname
         for(const PatientItem& item : mPatients){
 
-            std::string name = item.name.toLower().toStdString();
+            std::string name = item.fullName.toLower().toStdString();
 
             if(std::regex_search(name, reg)){
-                itemsFound.append({item.name, item.pesel, item.docId});
+                itemsFound.append({item.fullName, item.pesel,
+                                   item.firstName, item.secondName,
+                                   item.surname,item.docId});
             }
         }
     }
@@ -95,6 +108,11 @@ void PatientsListModel::doSearch(QString searchText){
     emit beginResetModel();
     mPatients = itemsFound;
     emit endResetModel();
+}
+
+PatientsListModel::PatientItem PatientsListModel::getItem(int itemIndex)
+{
+    return mPatients.at(itemIndex);
 }
 
 int PatientsListModel::rowCount(const QModelIndex& parent) const {
@@ -112,13 +130,23 @@ QVariant PatientsListModel::data(const QModelIndex& index, int role) const {
     switch(role){
     case NameRole:
         //return first name - model.firstName
-        return patient.name;
+        return patient.fullName;
     case PeselRole:
         //return pesel number - model.pesel
         return patient.pesel;
     case DocIdRole:
         //return id of doctor in charge - model.docId
         return patient.docId;
+    case FirstNameRole:
+        //return first name - model.firstName
+        return patient.firstName;
+    case SecondNameRole:
+        //return second name - model.secondName
+        return patient.secondName;
+    case SurnameRole:
+        //return surname - model.surname
+        return patient.surname;
+
     default:
         return QVariant();
 
@@ -148,18 +176,24 @@ Qt::ItemFlags PatientsListModel::flags(const QModelIndex &index) const
 
 QHash<int, QByteArray> PatientsListModel::roleNames() const{
     QHash<int, QByteArray> roles;
-    roles[NameRole] = "name";
+    roles[NameRole] = "fullName";
     roles[PeselRole] = "pesel";
     roles[DocIdRole] = "docId";
+    roles[FirstNameRole] = "firstName";
+    roles[SecondNameRole] = "secondName";
+    roles[SurnameRole] = "surname";
 
     return roles;
 }
 
-bool PatientsListModel::addItem(const QString& name, const QString& pesel,
-                                const QVariant& docId){
+bool PatientsListModel::addItem(const QString& fullName, const QString& pesel,
+                                const QString& firstName, const QString& secondName,
+                                const QString& surname, const QVariant& docId){
     emit beginInsert();
 
-    mPatients.append({name, pesel, docId});
+    mPatients.append({fullName, pesel,
+                      firstName, secondName,
+                      surname, docId});
 
     emit endInsert();
     return true;
@@ -170,6 +204,7 @@ bool PatientsListModel::addItem(const PatientItem& item){
     emit beginInsert();
     mPatients.append(item);
     emit endInsert();
+    return true;
 }
 
 }

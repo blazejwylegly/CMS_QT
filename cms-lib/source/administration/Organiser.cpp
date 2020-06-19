@@ -22,6 +22,11 @@ bool Organiser::removePatient(const int& id)
     return patientDAO.remove(id);
 }
 
+bool Organiser::removePatient(const std::string &pesel)
+{
+    return patientDAO.removeWithPesel(pesel);
+}
+
 //bool Organiser::removeAllPatients()
 //{
 //	return patientDAO.removeAll();

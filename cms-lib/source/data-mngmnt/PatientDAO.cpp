@@ -28,3 +28,11 @@
 //{
 //	return false;
 //}
+
+bool PatientDAO::removeWithPesel(const std::string &pesel)
+{
+    std::string query = "DELETE FROM ";
+    query.append(tableName).append(" WHERE PESEL = ");
+    query.append(pesel);
+    return SQLManager::executeRemoval(query.c_str());
+}

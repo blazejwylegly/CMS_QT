@@ -1,5 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
+import QtQuick.Layouts 1.3
 
 import assets 1.0
 import components 1.0
@@ -9,6 +10,9 @@ import CMS 1.0
 Item {
     id: patientsDisplay
     objectName: "patientsDisplay"
+
+    signal deleteButtonClicked(int itemIndex);
+    signal editButtonClicked(int itemIndex);
 
     visible: true
 
@@ -73,7 +77,7 @@ Item {
         id: list
 
         anchors.top: searchBar.bottom
-        anchors.bottom: editButton.top
+        anchors.bottom: buttonsRow.top
 
         width: parent.width
         height: parent.height
@@ -83,32 +87,71 @@ Item {
 
     }
 
-    PushButton {
-        id: editButton
-        objectName: "editButton"
 
-        width: 120
-        height: 40
+    Row {
+        id: buttonsRow
+        x: 25
 
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 20
+        height: 70
+
+        spacing: 20
+
+        anchors.left: searchBar.left
+        anchors.leftMargin: 10
 
         anchors.right: searchBar.right
-        anchors.rightMargin: 5
+        anchors.rightMargin: 10
 
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 10
 
-        font.family: "Verdana"
-        text: qsTr("Edit Patient")
-        font.pointSize: 10
+        layoutDirection: Qt.RightToLeft
 
-        display: AbstractButton.TextOnly
+        PushButton {
+            id: editButton
+            objectName: "editButton"
+
+            width: 120
+            height: 40
+
+            font.family: "Verdana"
+            text: qsTr("Edit Patient")
+            font.pointSize: 10
+
+            display: AbstractButton.TextOnly
+
+            onClicked: {
+                editButtonClicked(list.selectedItem);
+            }
+
+        }
+
+        PushButton {
+            id: deleteButton
+            objectName: "deleteButton"
+
+            width: 120
+            height: 40
+
+            font.family: "Verdana"
+            text: qsTr("Delete Patient")
+            font.pointSize: 10
+
+            display: AbstractButton.TextOnly
+
+            onClicked: {
+                list.deleteCurrentItem();
+            }
+        }
 
     }
+
+
 
 }
 
 /*##^##
-De/////////////////signer {
-    D{i:0;autoSize:true;height:480;width:640}D{i:3;anchors_x:0;anchors_y:79}
+Designer {
+    D{i:0;autoSize:true;height:480;width:640}D{i:5;anchors_y:434}
 }
 ##^##*/

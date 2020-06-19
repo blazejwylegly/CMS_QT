@@ -9,10 +9,16 @@ Item {
     objectName: "patientsList"
     visible: true
 
+    property var selectedItem;
+
     Connections{
         target: patientsModel
         onNothingFound: {
             console.log("Nothing found")
+        }
+
+        onEndResetModel: {
+            reload();
         }
     }
 
@@ -26,6 +32,10 @@ Item {
 
     PatientsListModel {
         id: patientsModel
+    }
+
+    function deleteCurrentItem(){
+        patientsModel.deletePatient(selectedItem);
     }
 
     function reload() {
@@ -79,10 +89,9 @@ Item {
 
                     }
                 }
-
             ]
 
-            color: Style.colorItemBackground
+            color: ListView.isCurrentItem ? Style.colorPrimaryTheme : Style.colorItemBackground
             border.color: "transparent"
 
             radius: Style.radiusItemBorder
@@ -113,7 +122,7 @@ Item {
 
                 color: "black"
 
-                text: model.name + "\n" + model.pesel
+                text: model.fullName + "\n" + model.pesel
                 wrapMode: Text.WrapAnywhere
             }
 
@@ -123,6 +132,14 @@ Item {
                 hoverEnabled: true
                 onEntered: listItem.state = "hover"
                 onExited: listItem.state = ""
+
+                onClicked: {
+                    listItem.state = "clicked"
+                    list.currentIndex = index;
+                    selectedItem = index;
+                    console.log("Current item: " + selectedItem)
+                }
+
             }
 
 

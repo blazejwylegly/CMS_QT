@@ -70,6 +70,19 @@ Item {
             width: parent.width
 
             visible: false
+
+            onEditButtonClicked: {
+                contentFrame.replace(patientEdition)
+            }
+        }
+
+        PatientEdition {
+            id: patientEdition
+
+            height: parent.height
+            width: parent.width
+
+            visible: false
         }
 
     }
