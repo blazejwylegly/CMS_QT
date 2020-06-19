@@ -9,6 +9,25 @@ Item {
     objectName: "patientAddition"
     visible: true
 
+    Connections {
+        target: patientAdditionController
+        onAdditionSuccessful: {
+            popup.message = "Addition successful!"
+            popup.open();
+        }
+
+        onAdditionFailed: {
+            popup.message = "Addition failed!"
+            popup.open();
+        }
+
+        onInvalidInput: {
+            popup.message = "Invalid inputs provided!"
+            popup.open();
+
+        }
+    }
+
     signal patientAdditionRequested(string firstName, string secondName, string surname, string pesel, int docId);
 
     Rectangle {
@@ -26,23 +45,20 @@ Item {
         anchors.bottomMargin: 0
     }
 
-
-
     ScrollView {
         id: scrollView
         rightPadding: 10
 
-        anchors.top: tabTitle.top
-        anchors.topMargin: 108
+        anchors.top: tabTitle.bottom
+        anchors.topMargin: 20
 
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 28
+        anchors.bottom: addButton.top
 
         anchors.left: parent.left
-        anchors.leftMargin: 49
+        anchors.leftMargin: 20
 
         anchors.right: parent.right
-        anchors.rightMargin: 37
+        anchors.rightMargin: 20
 
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
@@ -129,54 +145,13 @@ Item {
 
     }
 
-    Rectangle {
-        id: scrollViewMaskBottom
-        x: 0
-        y: 624
-        color: background.color
-
-        anchors.top: scrollView.bottom
-        anchors.topMargin: 0
-
-        anchors.bottom: parent.bottom
-        anchors.bottomMargin: 0
-
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-    }
-
-    Rectangle {
-
-        id: scrollViewMaskTop
-        x: 4
-        y: -4
-        color: background.color
-
-        anchors.top: parent.top
-        anchors.topMargin: 0
-
-        anchors.bottom: scrollView.top
-        anchors.bottomMargin: 0
-
-        anchors.right: parent.right
-        anchors.rightMargin: 0
-
-        anchors.left: parent.left
-        anchors.leftMargin: 0
-
-    }
-
     PushButton {
         id: addButton
 
         objectName: "addButton"
 
-        anchors.top: parent.top
-        anchors.topMargin: 25
-
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 20
 
         anchors.right: scrollView.right
         anchors.rightMargin: 5
@@ -191,7 +166,6 @@ Item {
         display: AbstractButton.TextOnly
 
         onClicked: {
-            console.log("Button clicked")
             patientAdditionRequested(firstNameInput.inputText, secondNameInput.inputText, surnameInput.inputText, peselInput.inputText, docIdInput.inputText);
         }
     }
@@ -221,12 +195,16 @@ Item {
         verticalAlignment: Text.AlignVCenter
     }
 
+    InfoPopup {
+        id: popup
+        anchors.centerIn: parent
+    }
 }
 
 
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:1000;width:1000}
+    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
 }
 ##^##*/

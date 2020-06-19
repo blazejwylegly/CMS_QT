@@ -1,10 +1,12 @@
 #pragma once 
-#include "Registry.h"
-#include "Person.h"
+
+#include <string>
 
 #include <QVariant>
 #include <QObject>
 
+#include "Registry.h"
+#include "Person.h"
 
 namespace cms{
 namespace models{

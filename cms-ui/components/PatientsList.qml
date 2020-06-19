@@ -16,6 +16,14 @@ Item {
         }
     }
 
+    Connections {
+        target: patientAdditionController
+        onAdditionSuccessful: {
+            reload();
+        }
+
+    }
+
     PatientsListModel {
         id: patientsModel
     }

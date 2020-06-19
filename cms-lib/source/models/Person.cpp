@@ -39,7 +39,7 @@ void to_json(nlohmann::json& j,const Person & obj) {
 
 std::string Person::marshal() const {
 	std::string str;
-	str += pesel;
+    str.append("\"").append(pesel).append("\"");
 	str += (std::string) ",'" += surname;
 	str += (std::string) "','" += firstName;
 	str += (std::string) "','" += secondName;

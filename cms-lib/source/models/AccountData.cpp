@@ -42,11 +42,5 @@ bool AccountData::authenticate(const std::string& pwd){
     return password == Encryptor::constEncode(pwd, salt);
 }
 
-void AccountData::print() const{
-    std::cout << "login: " << login << std::endl;
-    std::cout << "password hash: " << password << std::endl;
-    std::cout << "administrator: " << admin << std::endl;
-    std::cout << "salt: " << salt << std::endl;
-}
 
 

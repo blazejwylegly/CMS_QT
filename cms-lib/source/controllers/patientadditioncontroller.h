@@ -9,10 +9,13 @@
 
 #include <cms-lib_global.h>
 
+#include <administration/Clinic.h>
 #include "models/Patient.h"
 
 namespace cms {
 namespace controllers {
+
+using cms::administration::Clinic;
 
 class CMSLIBSHARED_EXPORT PatientAdditionController : public QObject
 {
@@ -23,6 +26,10 @@ private:
 public:
     explicit PatientAdditionController(QQmlApplicationEngine *parent = nullptr);
 
+signals:
+    void additionSuccessful();
+    void additionFailed();
+    void invalidInput();
 public slots:
     void HandlePatientAdditionRequested(QString, QString, QString, QString, int);
 

@@ -4,6 +4,7 @@
 
 #include "utility/Encryptor.h"
 
+
 #include <QtSql/QSqlQuery>
 #include <QVariant>
 
@@ -11,13 +12,14 @@
 class AccountData : public SQLAdapter<AccountData>
 {
 
-
 private:
+
     //data retrieved
 	std::string login;
 	std::string password;
     bool admin;
     std::string salt;
+
 public:
 
     AccountData(){ };
@@ -55,6 +57,6 @@ public:
         return this->admin;
     }
 
-    void print() const;
+
 };
 

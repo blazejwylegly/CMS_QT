@@ -12,13 +12,22 @@ PatientAdditionController::PatientAdditionController(QQmlApplicationEngine* engi
 }
 
 void PatientAdditionController::HandlePatientAdditionRequested(QString firstName, QString secondName, QString surname, QString pesel, int docId){
-    std::cerr << "Add patient button clicked!" << std::endl;
-    std::cerr << "First name: " << firstName.toStdString() << std::endl;
-    std::cerr << "Second name: " << secondName.toStdString() << std::endl;
-    std::cerr << "Surname: " << surname.toStdString() << std::endl;
-    std::cerr << "Pesel: " << pesel.toStdString() << std::endl;
-    std::cerr << "docId: " << docId << std::endl;
-    if(validateInputs(firstName, secondName, surname, pesel, docId));
+
+    if(validateInputs(firstName, secondName, surname, pesel, docId)){
+        int addAttempt = Clinic::addPatient(firstName.toStdString(),
+                                            secondName.toStdString(),
+                                            surname.toStdString(),
+                                            pesel.toStdString(),
+                                            docId);
+        if(addAttempt != -1){
+            emit additionSuccessful();
+            return;
+        }
+
+        emit additionFailed(); return;
+    }
+    emit invalidInput(); return;
+
 
 }
 

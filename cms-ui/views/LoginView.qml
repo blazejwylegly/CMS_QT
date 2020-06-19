@@ -29,7 +29,6 @@ Item {
         }
 
         onLoginFailed: {
-            console.log("Failed")
             infoPopup.message = "Login attempt failed!"
             infoPopup.open()
         }

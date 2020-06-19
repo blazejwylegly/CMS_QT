@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_cms__controllers__PatientAdditionController_t {
-    QByteArrayData data[3];
-    char stringdata0[76];
+    QByteArrayData data[6];
+    char stringdata0[123];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -33,12 +33,16 @@ struct qt_meta_stringdata_cms__controllers__PatientAdditionController_t {
 static const qt_meta_stringdata_cms__controllers__PatientAdditionController_t qt_meta_stringdata_cms__controllers__PatientAdditionController = {
     {
 QT_MOC_LITERAL(0, 0, 43), // "cms::controllers::PatientAddi..."
-QT_MOC_LITERAL(1, 44, 30), // "HandlePatientAdditionRequested"
-QT_MOC_LITERAL(2, 75, 0) // ""
+QT_MOC_LITERAL(1, 44, 18), // "additionSuccessful"
+QT_MOC_LITERAL(2, 63, 0), // ""
+QT_MOC_LITERAL(3, 64, 14), // "additionFailed"
+QT_MOC_LITERAL(4, 79, 12), // "invalidInput"
+QT_MOC_LITERAL(5, 92, 30) // "HandlePatientAdditionRequested"
 
     },
     "cms::controllers::PatientAdditionController\0"
-    "HandlePatientAdditionRequested\0"
+    "additionSuccessful\0\0additionFailed\0"
+    "invalidInput\0HandlePatientAdditionRequested"
 };
 #undef QT_MOC_LITERAL
 
@@ -48,15 +52,25 @@ static const uint qt_meta_data_cms__controllers__PatientAdditionController[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       1,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       3,       // signalCount
+
+ // signals: name, argc, parameters, tag, flags
+       1,    0,   34,    2, 0x06 /* Public */,
+       3,    0,   35,    2, 0x06 /* Public */,
+       4,    0,   36,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       1,    5,   19,    2, 0x0a /* Public */,
+       5,    5,   37,    2, 0x0a /* Public */,
+
+ // signals: parameters
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::QString, QMetaType::Int,    2,    2,    2,    2,    2,
@@ -70,8 +84,34 @@ void cms::controllers::PatientAdditionController::qt_static_metacall(QObject *_o
         auto *_t = static_cast<PatientAdditionController *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->HandlePatientAdditionRequested((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< int(*)>(_a[5]))); break;
+        case 0: _t->additionSuccessful(); break;
+        case 1: _t->additionFailed(); break;
+        case 2: _t->invalidInput(); break;
+        case 3: _t->HandlePatientAdditionRequested((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3])),(*reinterpret_cast< QString(*)>(_a[4])),(*reinterpret_cast< int(*)>(_a[5]))); break;
         default: ;
+        }
+    } else if (_c == QMetaObject::IndexOfMethod) {
+        int *result = reinterpret_cast<int *>(_a[0]);
+        {
+            using _t = void (PatientAdditionController::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&PatientAdditionController::additionSuccessful)) {
+                *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (PatientAdditionController::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&PatientAdditionController::additionFailed)) {
+                *result = 1;
+                return;
+            }
+        }
+        {
+            using _t = void (PatientAdditionController::*)();
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&PatientAdditionController::invalidInput)) {
+                *result = 2;
+                return;
+            }
         }
     }
 }
@@ -105,15 +145,33 @@ int cms::controllers::PatientAdditionController::qt_metacall(QMetaObject::Call _
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 1)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 1;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 1)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 1;
+        _id -= 4;
     }
     return _id;
+}
+
+// SIGNAL 0
+void cms::controllers::PatientAdditionController::additionSuccessful()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+}
+
+// SIGNAL 1
+void cms::controllers::PatientAdditionController::additionFailed()
+{
+    QMetaObject::activate(this, &staticMetaObject, 1, nullptr);
+}
+
+// SIGNAL 2
+void cms::controllers::PatientAdditionController::invalidInput()
+{
+    QMetaObject::activate(this, &staticMetaObject, 2, nullptr);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

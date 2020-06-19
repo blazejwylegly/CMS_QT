@@ -60,7 +60,7 @@ public:
     Executes insert query, returns id of added recod ONLY in case insert succeded
     */
     static int executeInsert(const char* query) {
-//         std::cout << "Executing query: " << query << std::endl;
+         std::cout << "Executing query: " << query << std::endl;
 
          establishConnection();
 

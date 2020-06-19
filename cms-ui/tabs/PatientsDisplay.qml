@@ -108,7 +108,7 @@ Item {
 }
 
 /*##^##
-Designer {
+De/////////////////signer {
     D{i:0;autoSize:true;height:480;width:640}D{i:3;anchors_x:0;anchors_y:79}
 }
 ##^##*/

@@ -16,6 +16,8 @@ void UserViewController::initialize(){
     patientsDisplayController = new PatientsDisplayController(engine);
     menuBarController = new MenuBarController(engine);
     engine->rootContext()->setContextProperty("menuBarController", menuBarController);
+    engine->rootContext()->setContextProperty("patientAdditionController", patientAdditionController);
+    engine->rootContext()->setContextProperty("patientsDisplayController", patientsDisplayController);
 }
 
 void UserViewController::setConnections(){

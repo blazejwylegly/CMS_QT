@@ -31,7 +31,7 @@ public:
     Organiser() = default;
 	PatientPtr getPatient(const int& id);
 	PatientCont getAllPatients();
-        int addPatient(const cms::models::Patient& obj);
+    int addPatient(const cms::models::Patient& obj);
 	bool removePatient(const int& id);
 	bool removeAllPatients();
 	bool updatePatient();

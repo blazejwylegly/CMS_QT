@@ -3,7 +3,7 @@
 namespace cms {
 namespace administration {
 
-Organiser Clinic::organiser;
+ Organiser Clinic::organiser;
 std::shared_ptr<AccountData> Clinic::currentUser = nullptr;
 
 Clinic::Clinic()
@@ -25,8 +25,22 @@ bool Clinic::isAdminLogged(){
     return currentUser->isAdmin();
 }
 
+//std::shared_ptr<AccountData> Clinic::getCurrentUser(){
+//    return std::make_shared<AccountData>(currentUser);
+//}
+
 PatientCont Clinic::getAllPatients(){
-    return organiser.getAllPatients();
+    PatientCont patients;
+    if(currentUser) return organiser.getAllPatients();
+    return patients;
+}
+
+int Clinic::addPatient(const std::string &firstName,
+                       const std::string &secondName,
+                       const std::string &surname,
+                       const std::string &pesel,
+                       const int &docId){
+    if(currentUser) return organiser.addPatient(cms::models::Patient(pesel, surname, firstName, secondName, docId));
 }
 
 }

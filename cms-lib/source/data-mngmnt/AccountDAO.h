@@ -1,8 +1,10 @@
 #ifndef ACCOUNTDAO_H
 #define ACCOUNTDAO_H
 
+#include <memory>
 #include <models/AccountData.h>
-#include "data-mngmnt/DAO.h"
+
+#include <data-mngmnt/SQLManager.h>
 
 
 class AccountDAO

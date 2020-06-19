@@ -18,12 +18,12 @@ Patient& Patient::operator=(Patient&& obj) {
 std::string Patient::marshal() const {
 
     std::string values = Person::marshal();
-    values += ",";
+    values.append(",");
     if (registry.getDoctorInChargeID() == -1) {
-        values += "NULL";
+        values.append("NULL");
     }
     else {
-        values += registry.getDoctorInChargeID();
+        values.append(std::to_string(registry.getDoctorInChargeID()));
     }
     return values;
 }
