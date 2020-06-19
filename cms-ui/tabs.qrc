@@ -3,5 +3,6 @@
         <file alias="PatientAddition.qml">tabs/PatientAddition.qml</file>
         <file alias="qmldir">tabs/qmldir</file>
         <file alias="AccountAddition.qml">tabs/AccountAddition.qml</file>
+        <file alias="PatientsDisplay.qml">tabs/PatientsDisplay.qml</file>
     </qresource>
 </RCC>

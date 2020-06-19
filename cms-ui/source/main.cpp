@@ -3,15 +3,15 @@
 
 #include <QQmlContext>
 
-#include "controllers/mastercontroller.h"
-#include <controllers/navigation-controller.h>
-#include <controllers/commandcontroller.h>
-#include <controllers/loginviewcontroller.h>
-
+#include <controllers/patientslistmodel.h>
 #include <controllers/maincontroller.h>
 
-#include <framework/command.h>
+#include <models/Patient.h>
+#include <models/AccountData.h>
 
+#include "administration/Organiser.h"
+
+#include <cms-lib_global.h>
 
 int main(int argc, char *argv[])
 {
@@ -19,22 +19,21 @@ int main(int argc, char *argv[])
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
     QGuiApplication app(argc, argv);
-
-
-//    qmlRegisterType<cms::controllers::MasterController>("CMS", 1, 0, "MasterController");
-//    qmlRegisterType<cms::controllers::NavigationController>("CMS", 1, 0, "NavigationController");
-//    qmlRegisterType<cms::framework::Command>("CMS", 1, 0, "Command");
-//    qmlRegisterType<cms::controllers::CommandController>("CMS", 1, 0, "CommandController");
+    qmlRegisterType<cms::controllers::PatientsListModel>("CMS", 1, 0, "PatientsListModel");
+    //qmlRegisterType<cms::controllers::MenuBarController>("CMS", 1, 0, "menuBarController");
+    //qmlRegisterType<cms::controllers::LoginViewController>("CMS", 1, 0, "loginController");
 
     QQmlApplicationEngine engine;
+
+
     engine.addImportPath("qrc:/");
     engine.load(QUrl(QStringLiteral("qrc:/views/main.qml")));
     cms::controllers::MainController mc(&engine);
 
-
     return app.exec();
 
-
+//    accountCreationTest();
+    return 0;
 
     //cms::controllers::MasterController masterController;
 

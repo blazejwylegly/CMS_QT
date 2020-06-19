@@ -35,9 +35,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES +=  \
     source/administration/Clinic.cpp \
     source/administration/Organiser.cpp \
+    source/controllers/adminviewcontroller.cpp \
     source/controllers/loginviewcontroller.cpp \
     source/controllers/maincontroller.cpp \
+    source/controllers/menubarcontroller.cpp \
     source/controllers/patientadditioncontroller.cpp \
+    source/controllers/patientsdisplaycontroller.cpp \
+    source/controllers/patientslistmodel.cpp \
     source/controllers/userviewcontroller.cpp \
     source/data-mngmnt/AccountDAO.cpp \
     source/data-mngmnt/DoctorDAO.cpp \
@@ -59,9 +63,13 @@ SOURCES +=  \
 HEADERS +=  source/cms-lib_global.h \
             source/administration/Clinic.h \
             source/administration/Organiser.h \
+            source/controllers/adminviewcontroller.h \
             source/controllers/loginviewcontroller.h \
             source/controllers/maincontroller.h \
+            source/controllers/menubarcontroller.h \
             source/controllers/patientadditioncontroller.h \
+            source/controllers/patientsdisplaycontroller.h \
+            source/controllers/patientslistmodel.h \
             source/controllers/userviewcontroller.h \
             source/data-mngmnt/AccountDAO.h \
             source/data-mngmnt/DAO.h \

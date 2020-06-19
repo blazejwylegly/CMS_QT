@@ -30,13 +30,17 @@ Item {
     }
 
 
-    PatientAddition {
-        id: patientAddition
+//    PatientAddition {
+//        id: patientAddition
 
-        height: contentFrame.height
-        width: contentFrame.width
+//        height: contentFrame.height
+//        width: contentFrame.width
 
-        visible: true
+//        visible: true
+//    }
+
+    MenuBar {
+
     }
 
 //    Rectangle {

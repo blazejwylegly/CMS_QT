@@ -9,6 +9,7 @@
 #include <administration/Clinic.h>
 
 #include "userviewcontroller.h"
+#include "adminviewcontroller.h"
 
 namespace cms{
 namespace controllers{
@@ -23,6 +24,7 @@ private:
     QQmlApplicationEngine* engine {nullptr};
 
     UserViewController* uvc {nullptr};
+    AdminViewController* avc {nullptr};
 
     void loadAdminView();
     void loadUserView();

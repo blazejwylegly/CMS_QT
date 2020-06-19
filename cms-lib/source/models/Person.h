@@ -41,7 +41,7 @@ public:
 	std::string getFullName() const { return firstName + " " + secondName + " " + surname; };
 
 	int compare(const Person& obj);
-	virtual void print() const;
+    void print() const;
 
 	friend void to_json(nlohmann::json& j, const Person& obj);
 

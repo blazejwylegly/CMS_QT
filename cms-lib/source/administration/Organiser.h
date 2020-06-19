@@ -7,8 +7,6 @@
 #include <models/Doctor.h>
 #include <models/MedicalProcedure.h>
 
-
-
 typedef std::unique_ptr<cms::models::Patient> PatientPtr;
 typedef std::vector<PatientPtr> PatientCont;
 
@@ -54,12 +52,9 @@ public:
 
 
     Account login(const std::string& login, const std::string& pwd);
-    Account login(const int& id, const std::string& pwd);
-    Accounts getAllAccounts();
     int addAccount(const AccountData& obj);
     bool removeAccount(const int& id);
-//	bool removeAllAccounts();
-//	bool updateAccountData();
+   // bool updateAccount(const int& id, const AccountData& obj);
 
 };
 

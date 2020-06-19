@@ -4,15 +4,20 @@
 #include <models/AccountData.h>
 #include "data-mngmnt/DAO.h"
 
-//typedef std::unique_ptr<AccountData> Account;
-//typedef std::vector<Account> AccountsColl;
 
-class AccountDAO : public DAO<AccountData>
+class AccountDAO
 {
+private:
+    std::string columns;
+    std::string tableName;
+
 public:
-    AccountDAO(): DAO("login, hash, admin, salt", "accounts") {};
+    AccountDAO(): columns("login, hash, admin, salt"), tableName("accounts") {};
 
     std::unique_ptr<AccountData> get(const std::string& login);
+    int add(const AccountData&);
+    bool remove(const int& id);
+   // bool update(const int& id, const AccountData&);
 };
 
 #endif // ACCOUNTDAO_H

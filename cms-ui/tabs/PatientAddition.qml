@@ -9,8 +9,6 @@ Item {
     objectName: "patientAddition"
     visible: true
 
-    anchors.fill: parent
-
     signal patientAdditionRequested(string firstName, string secondName, string surname, string pesel, int docId);
 
     Rectangle {
@@ -29,11 +27,12 @@ Item {
     }
 
 
+
     ScrollView {
         id: scrollView
         rightPadding: 10
 
-        anchors.top: parent.top
+        anchors.top: tabTitle.top
         anchors.topMargin: 108
 
         anchors.bottom: parent.bottom
@@ -197,12 +196,37 @@ Item {
         }
     }
 
+    Text {
+        id: tabTitle
+
+        x: 0
+        y: 33
+        width: 212
+        height: 43
+
+        anchors.top: parent.top
+        anchors.topMargin: 30
+
+        anchors.left: parent.left
+        anchors.leftMargin: 30
+
+        color: "#393e46"
+        text: "Patients addition"
+        font.family: "Verdana"
+
+        font.weight: Font.Medium
+
+        font.pixelSize: 30
+
+        verticalAlignment: Text.AlignVCenter
+    }
+
 }
 
 
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:1000;width:1000}
 }
 ##^##*/

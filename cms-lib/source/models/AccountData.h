@@ -8,7 +8,6 @@
 #include <QVariant>
 
 
-
 class AccountData : public SQLAdapter<AccountData>
 {
 

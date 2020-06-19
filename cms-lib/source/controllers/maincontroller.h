@@ -7,6 +7,7 @@
 #include <cms-lib_global.h>
 
 #include "loginviewcontroller.h"
+#include "menubarcontroller.h"
 
 namespace cms {
 namespace controllers {
@@ -19,6 +20,7 @@ private:
     QObject* rootObject {nullptr};
     QQmlApplicationEngine* engine {nullptr};
     LoginViewController* lvc {nullptr};
+    MenuBarController* menuBarController {nullptr};
 
 public:
     MainController(QQmlApplicationEngine* _engine);

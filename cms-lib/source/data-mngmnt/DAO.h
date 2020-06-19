@@ -4,8 +4,6 @@
 #include <memory>
 #include <vector>
 
-
-
 template <class T>
 class DAO{
 protected:

@@ -14,6 +14,7 @@ Item {
     signal loginSuccessful();
     signal loginFailed();
 
+
     objectName: "loginView"
 
     Connections {
@@ -32,6 +33,13 @@ Item {
             infoPopup.message = "Login attempt failed!"
             infoPopup.open()
         }
+    }
+
+
+    Rectangle {
+        id: background
+        anchors.fill: parent
+        color: Style.colorBackground
     }
 
 
@@ -75,8 +83,6 @@ Item {
             font.pixelSize: Style.pixelSizeTextFieldInput
 
             background: Rectangle {
-                border.width: Style.widthItemBorder
-                border.color: Style.colorItemBorder
                 radius: Style.radiusItemBorder
             }
 
@@ -111,30 +117,21 @@ Item {
             font.pixelSize: Style.pixelSizeTextFieldInput
 
             background: Rectangle {
-                border.width: Style.widthItemBorder
-                border.color: Style.colorItemBorder
                 radius: Style.radiusItemBorder
             }
 
         }
 
 
-        Button {
+        PushButton {
             id: button
             objectName: "proceed_button"
+
             x: 186
             y: 246
-            width: 90
-            height: 30
-
-            background: Rectangle {
-                border.width: Style.widthItemBorder
-                border.color: Style.colorItemBorder
-                radius: Style.radiusItemBorder
-            }
 
             text: qsTr("Proceed")
-            font.pixelSize: Style.pixelSizeTextFieldInput
+
             onClicked: {
                 loginController.loginButtonClicked(username_textField.text, password_textInput.text)
             }

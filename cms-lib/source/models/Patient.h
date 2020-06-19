@@ -2,8 +2,6 @@
 #include "Registry.h"
 #include "Person.h"
 
-#include <cms-lib_global.h>
-
 #include <QVariant>
 #include <QObject>
 
@@ -11,7 +9,7 @@
 namespace cms{
 namespace models{
 
-class CMSLIBSHARED_EXPORT Patient : public Person, public SQLAdapter<cms::models::Patient>, public QObject
+class Patient : public Person, public SQLAdapter<cms::models::Patient>, public QObject
 {
 private:
     Registry registry;
@@ -35,12 +33,10 @@ public:
     //Move assignment operator
     Patient& operator=(Patient&& obj);
 
+    int getDocId() const { return registry.getDoctorInChargeID(); };
     Registry getRegistry() const { return registry; };
 
-    void setFirstName( std::string name){
-        //this->firstName = name;
-    }
-
+    //Methods inherited from SQLAdapter
     std::string marshal() const override;
     std::unique_ptr<Patient> deserialize(QSqlQuery& row) override;
     std::vector<std::unique_ptr<Patient>> deserializeAll(QSqlQuery& result) override;

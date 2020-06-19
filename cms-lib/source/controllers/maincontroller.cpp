@@ -4,10 +4,14 @@ namespace cms {
 namespace controllers {
 
 MainController::MainController(QQmlApplicationEngine* _engine){
+
     this->engine = _engine;
     this->rootObject = engine->rootObjects().first();
-    this->lvc = new cms::controllers::LoginViewController(_engine);
+    this->lvc = new LoginViewController(engine);
+//    this->menuBarController = new MenuBarController(engine);
+
     engine->rootContext()->setContextProperty("loginController", lvc);
+//    engine->rootContext()->setContextProperty("menuBarController", menuBarController);
 }
 
 MainController::~MainController(){

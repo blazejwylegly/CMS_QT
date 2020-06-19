@@ -2,6 +2,7 @@
 #include "DAO.h"
 #include <models/Doctor.h>
 #include <string>
+
 class DoctorDAO : public DAO<Doctor>
 {
 public:

@@ -2,11 +2,9 @@
 
 #include <QtSql/QSqlQuery>
 
-
 #include <string>
 #include <vector>
 #include <memory>
-
 
 template <class T>
 class SQLAdapter

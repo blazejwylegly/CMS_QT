@@ -1,6 +1,5 @@
 #pragma once
-#include "Person.h"
-#include "utility/TimeManager.h"
+
 #include <memory.h>
 #include <string>
 
@@ -8,7 +7,12 @@
 #include <QTime>
 #include <QtSql/QSqlField>
 #include <QDebug>
+
 #include "3rdparty/include/nlohmann/json.hpp"
+
+#include "Person.h"
+#include "utility/TimeManager.h"
+
 
 class Doctor : public Person, public SQLAdapter<Doctor>
 {

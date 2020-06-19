@@ -11,6 +11,8 @@ Button {
     font.family: "Rubik"
     display: AbstractButton.TextOnly
     text: qsTr("Text")
+    font.pixelSize: Style.pixelSizeTextLabel
+
     contentItem: Text {
         id: contentText
         text: pushButton.text
@@ -19,9 +21,10 @@ Button {
         verticalAlignment: Text.AlignVCenter
         color: "black"
     }
+
     background: Rectangle {
-        color: pushButton.pressed ? "#b9edfe" : pushButton.hovered ? "#b1ebfd" : "white"
-        border.color: Style.colorItemBorder
-        radius: 25
+        color: pushButton.pressed ? "#b9edfe" : pushButton.hovered ? Style.colorPrimaryTheme : "white"
+        border.color: "transparent"
+        radius: Style.radiusItemBorder
     }
 }

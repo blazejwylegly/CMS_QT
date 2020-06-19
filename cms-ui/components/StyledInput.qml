@@ -77,7 +77,7 @@ Item {
 
         font.family: "Rubik"
         color: "#259fc4"
-        placeholderTextColor: "#d2def5"
+        placeholderTextColor: Style.colorPrimaryTheme
         selectionColor: "#a3e7fc"
         selectByMouse: true
         font.weight: Font.Medium

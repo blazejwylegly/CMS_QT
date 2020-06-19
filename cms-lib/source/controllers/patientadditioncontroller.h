@@ -1,6 +1,9 @@
 #ifndef PATIENTADDITIONCONTROLLER_H
 #define PATIENTADDITIONCONTROLLER_H
 
+#include <string>
+#include <iostream>
+#include <regex>
 #include <QObject>
 #include <QQmlApplicationEngine>
 
@@ -16,6 +19,7 @@ class CMSLIBSHARED_EXPORT PatientAdditionController : public QObject
     Q_OBJECT
 private:
     QObject* rootObject {nullptr};
+    bool validateInputs(QString, QString, QString, QString, int);
 public:
     explicit PatientAdditionController(QQmlApplicationEngine *parent = nullptr);
 

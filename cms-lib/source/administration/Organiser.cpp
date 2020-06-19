@@ -61,26 +61,10 @@ Account Organiser::login(const std::string& login, const std::string& pwd){
     }
 }
 
-//Account Organiser::login(const int &id, const std::string &pwd){
-//    Account ptr = accountDAO.get(id);
-//    if(ptr != nullptr && ptr->authenticate(pwd)){
-//        return ptr;
-//    }else{
-//        return nullptr;
-//    }
-//}
-
-Accounts Organiser::getAllAccounts(){
-    return accountDAO.getAll();
+int Organiser::addAccount(const AccountData &obj){
+    return accountDAO.add(obj);
 }
 
-int Organiser::addAccount(const AccountData &obj){
-
-//    if(accountDAO.get(obj.getLogin()) == nullptr){
-//        return accountDAO.add(obj);
-//    }else{
-//        return -1;
-//    }
-    return accountDAO.add(obj);
-
+bool Organiser::removeAccount(const int &id){
+    return accountDAO.remove(id);
 }

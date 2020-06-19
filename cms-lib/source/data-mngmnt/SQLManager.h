@@ -11,8 +11,6 @@
 #include <string>
 #include <list>
 
-typedef std::list<std::string> queryList;
-
 class SQLManager
 {
 private:

@@ -3,9 +3,8 @@
 #include "utility/TimeManager.h"
 
 #include "time.h"
-//class Patient;
 
-class MedicalProcedure
+class  MedicalProcedure
 {
 private:
 

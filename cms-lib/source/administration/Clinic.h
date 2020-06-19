@@ -18,6 +18,7 @@ public:
     static void initialize();
     static bool login(const std::string& login, const std::string& pwd);
     static bool isAdminLogged();
+    static PatientCont getAllPatients();
 };
 
 }

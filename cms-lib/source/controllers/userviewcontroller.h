@@ -2,21 +2,38 @@
 #define USERVIEWCONTROLLER_H
 
 #include <QObject>
+#include <QQmlContext>
+#include <cms-lib_global.h>
 
 #include "patientadditioncontroller.h"
+#include "patientsdisplaycontroller.h"
 
+#include "menubarcontroller.h"
 namespace cms {
 namespace controllers{
 
-class UserViewController : public QObject
+class CMSLIBSHARED_EXPORT UserViewController : public QObject
 {
     Q_OBJECT
 
-private:
-    QObject* rootObject;
+protected:
+    QQmlApplicationEngine* engine {nullptr};
+    QObject* rootObject {nullptr};
+
     PatientAdditionController* patientAdditionController {nullptr};
+    PatientsDisplayController* patientsDisplayController {nullptr};
+    MenuBarController* menuBarController{nullptr};
+
+    virtual void initialize();
+    virtual void setConnections();
+
 public:
-    explicit UserViewController(QQmlApplicationEngine *engine);
+    UserViewController(QQmlApplicationEngine *engine){
+        this->engine = engine;
+        this->initialize();
+        this->setConnections();
+    }
+
     ~UserViewController();
 signals:
 

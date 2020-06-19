@@ -5,4 +5,12 @@ StyledDateInput 1.0 StyledDateInput.qml
 
 PushButton 1.0 PushButton.qml
 
+MenuBar 1.0 MenuBar.qml
+MenuButton 1.0 MenuButton.qml
+MenuBarLabel 1.0 MenuBarLabel.qml
+
+SearchBar 1.0 SearchBar.qml
+
 InfoPopup 1.0 InfoPopup.qml
+
+PatientsList 1.0 PatientsList.qml

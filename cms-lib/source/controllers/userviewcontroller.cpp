@@ -3,18 +3,24 @@
 namespace cms {
 namespace controllers {
 
-UserViewController::UserViewController(QQmlApplicationEngine* engine){
+UserViewController::~UserViewController(){
+    delete patientAdditionController;
+    delete patientsDisplayController;
+    delete menuBarController;
+}
+
+void UserViewController::initialize(){
     rootObject = engine->rootObjects().first()->findChild<QObject*>("userView");
 
     patientAdditionController = new PatientAdditionController(engine);
-
+    patientsDisplayController = new PatientsDisplayController(engine);
+    menuBarController = new MenuBarController(engine);
+    engine->rootContext()->setContextProperty("menuBarController", menuBarController);
 }
 
+void UserViewController::setConnections(){
 
-UserViewController::~UserViewController(){
-    delete patientAdditionController;
 }
-
 
 }
 }

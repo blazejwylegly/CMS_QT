@@ -5,5 +5,10 @@
         <file alias="StyledInput.qml">components/StyledInput.qml</file>
         <file alias="StyledDateInput.qml">components/StyledDateInput.qml</file>
         <file alias="PushButton.qml">components/PushButton.qml</file>
+        <file alias="MenuBar.qml">components/MenuBar.qml</file>
+        <file alias="MenuButton.qml">components/MenuButton.qml</file>
+        <file alias="MenuBarLabel.qml">components/MenuBarLabel.qml</file>
+        <file alias="PatientsList.qml">components/PatientsList.qml</file>
+        <file alias="SearchBar.qml">components/SearchBar.qml</file>
     </qresource>
 </RCC>

@@ -22,13 +22,15 @@ Window {
 
     LoginView {
         id:loginView
-        anchors.fill: parent
+        width: parent.width
+        height: parent.height
+
         onUserLoginSuccessful: {
-            stackView.replace("qrc:/views/UserView.qml");
+            stackView.replace("qrc:/views/UserView.qml", {width: parent.width, height: parent.height});
         }
 
         onAdminLoginSuccessful: {
-            stackView.replace("qrc:/views/AdminView.qml");
+            stackView.replace("qrc:/views/AdminView.qml", {width: parent.width, height: parent.height});
         }
 
 

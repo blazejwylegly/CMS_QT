@@ -11,50 +11,77 @@ Item {
     objectName: "adminView"
     visible: true
 
-    width: parent.width
-    height: parent.height
-
     signal logOut()
 
-    StackView {
-           id: contentFrame
-           anchors.top: parent.top
-           anchors.topMargin: 0
-           anchors.bottom: parent.bottom
-           anchors.bottomMargin: 0
-           anchors.right: parent.right
-           anchors.rightMargin: 0
-           anchors.left: parent.left
-           anchors.leftMargin: 30
+    Connections {
+        //Creating connections component bound to instance of MenuBarController
+        //These connections define behaviour for signals sent by target Class
+        target: menuBarController
+        onGoDashboardView: {
+            contentFrame.replace("qrc:/")
+        }
 
-           initialItem: patientAddition
+        onLoadPatientAddition: {
+            contentFrame.replace(patientAddition)
+        }
+
+        onLoadPatientsDisplay: {
+            contentFrame.replace(patientsDisplay)
+        }
+
     }
 
-
-    PatientAddition {
-        id: patientAddition
-
-        height: contentFrame.height
-        width: contentFrame.width
-
-        visible: true
-    }
-
-//    Rectangle {
-//        anchors.fill: contentFrame
-//        color: Style.colorBackground
-//        Text {
-//            anchors.centerIn: parent
-//            text: "user view"
-//        }
-//    }
-
-    ListModel {
-        id: menuModel
-        ListElement {
-            buttonText: "Add Patient"
-            buttonIcon: ""
+    MenuBar {
+        id: menuBar
+        anchors.bottom: parent.bottom
+        anchors.bottomMargin: 0
+        anchors {
+            top: parent.top
+            left: parent.left
         }
     }
 
+
+    StackView {
+
+        id: contentFrame
+        height: parent.height
+        anchors.right: parent.right
+        anchors.rightMargin: 0
+        anchors.left: menuBar.right
+        anchors.leftMargin: 0
+
+
+        initialItem: patientsDisplay
+
+        PatientAddition {
+            id: patientAddition
+
+            height: parent.height
+            width: parent.width
+
+            visible: false
+        }
+
+        PatientsDisplay {
+            id: patientsDisplay
+
+            height: parent.height
+            width: parent.width
+
+            visible: false
+        }
+
+    }
+
+
+
+
+
 }
+
+/*##^##
+Designer {
+    D{i:0;formeditorZoom:0.6600000262260437}D{i:2;anchors_height:700;anchors_width:700;anchors_y:0}
+}
+##^##*/

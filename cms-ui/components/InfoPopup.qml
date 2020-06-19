@@ -20,7 +20,7 @@ Popup {
         anchors.fill: parent
 
 
-        border.color: Style.colorItemBorder
+        border.color: Style.colorPrimaryTheme
         color: "#7a7a7a"
 
         opacity: 0.8

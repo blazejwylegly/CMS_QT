@@ -13,6 +13,7 @@ public:
     void registerPatient(const cms::models::Patient& obj);
     void getPatient(const int& id);
 
+
     void cancelAppointment();
     void makeAppointment(const MedicalProcedure& obj);
     void reschedule(MedicalProcedure& obj);

@@ -25,6 +25,10 @@ bool Clinic::isAdminLogged(){
     return currentUser->isAdmin();
 }
 
+PatientCont Clinic::getAllPatients(){
+    return organiser.getAllPatients();
+}
+
 }
 }
 

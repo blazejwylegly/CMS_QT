@@ -6,7 +6,6 @@
 #include <iostream>
 #include <memory>
 
-
 class AppUser : public AccountData{
 public:
 

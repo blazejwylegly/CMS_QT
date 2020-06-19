@@ -19,3 +19,20 @@ std::unique_ptr<AccountData> AccountDAO::get(const std::string& login){
     return ptr;
 
 }
+
+int AccountDAO::add(const AccountData& obj){
+
+    std::string query = "INSERT INTO";
+    query.append(tableName).append("(");
+    query.append(columns).append(")\n").append("VALUES (");
+    query.append(obj.marshal()).append(")");
+    return SQLManager::executeInsert(query.c_str());
+
+}
+
+bool AccountDAO::remove(const int& id){
+    std::string query = "DELETE FROM ";
+    query.append(tableName).append(" WHERE id = ");
+    query.append(std::to_string(id));
+    return SQLManager::executeRemoval(query.c_str());
+}
