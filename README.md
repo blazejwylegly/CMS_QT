@@ -11,4 +11,4 @@ Technologies used:
 - Qt framework
 - QML
 
-Project was created for academic purposes, therefore it's not completely finished.
+Project was created for academic purposes, therefore it's not finished.
