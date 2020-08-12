@@ -11,7 +11,7 @@ Technologies used:
 - Qt framework
 - QML
 
-
+Sample application screenshots:
 ![alt text](https://github.com/bwylegly/CMS_QT/blob/master/screenshots/image_concat.png?raw=true)
 
 Project still under development.
