@@ -14,7 +14,7 @@ void LoginViewController::loginButtonClicked(QString user, QString pwd)
         loadUserView(); return;
 
     }
-    emit loginFailed();
+    //emit loginFailed();
 
 }
 

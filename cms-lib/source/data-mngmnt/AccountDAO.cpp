@@ -16,6 +16,7 @@ std::unique_ptr<AccountData> AccountDAO::get(const std::string& login){
         }
         SQLManager::finish(result);
     }
+    std::cout << ptr.get() << std::endl;
     return ptr;
 
 }

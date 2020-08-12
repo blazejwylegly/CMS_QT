@@ -38,7 +38,7 @@ bool PatientAdditionController::validateInputs(QString firstName, QString second
     if(!std::regex_match(firstName.toStdString(), stringRegex)) return false;
     if(!std::regex_match(secondName.toStdString(), stringRegex)) return false;
     if(!std::regex_match(surname.toStdString(), stringRegex)) return false;
-    if(!std::regex_match(pesel.toStdString(), peselRegex)) return false;
+   // if(!std::regex_match(pesel.toStdString(), peselRegex)) return false;
     return true;
 
 

@@ -20,7 +20,7 @@ private:
     static void establishConnection(){
 
         db.setHostName("127.0.0.1");
-        db.setDatabaseName("clinic");
+        db.setDatabaseName("cms");
         db.setUserName("root");
         db.setPassword("root");
         db.setPort(3306);
