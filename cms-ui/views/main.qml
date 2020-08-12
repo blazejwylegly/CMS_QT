@@ -6,8 +6,8 @@ Window {
     id: main
     title: "cms"
     visible: true
-    width: 800
-    height: 640
+    width: 659
+    height: 503
     StackView {
         id: stackView
         anchors.fill: parent

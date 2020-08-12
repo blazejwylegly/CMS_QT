@@ -33,8 +33,7 @@ Item {
     Rectangle {
         id: background
         color: "#eeeeee"
-        border.width: 0
-        border.color: "#eeeeee"
+
         anchors.right: parent.right
         anchors.rightMargin: 0
         anchors.left: parent.left
@@ -43,22 +42,28 @@ Item {
         anchors.topMargin: 0
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 0
+
+        transformOrigin: Item.Center
+
+        border.width: 0
+        border.color: "#eeeeee"
     }
 
     ScrollView {
         id: scrollView
-        rightPadding: 10
+        transformOrigin: Item.Center
 
-        anchors.top: tabTitle.bottom
-        anchors.topMargin: 20
+        anchors.top: topMask.bottom
 
-        anchors.bottom: addButton.top
-
-        anchors.left: parent.left
-        anchors.leftMargin: 20
+        anchors.bottom: bottomMask.top
 
         anchors.right: parent.right
-        anchors.rightMargin: 20
+
+        anchors.left: parent.left
+
+        anchors.margins: 20
+
+        width: parent.width
 
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
 
@@ -66,20 +71,23 @@ Item {
         Column {
 
             id: inputsColumn
-            spacing: 15
+
             width: scrollView.width
 
-
+            spacing: 15
+            transformOrigin: Item.Center
 
             StyledInput {
                 id: firstNameInput
+
                 height: 80
+
+                width: parent.width
 
                 anchors.left: parent.left
                 anchors.leftMargin: 5
-
                 anchors.right: parent.right
-                anchors.rightMargin: 5
+                anchors.rightMargin:5
 
                 placeholder: "first name"
                 titleText: "First Name"
@@ -89,6 +97,8 @@ Item {
             StyledInput {
                 id: secondNameInput
                 height: 80
+
+                width: parent.width
 
                 anchors.left: parent.left
                 anchors.leftMargin: 5
@@ -104,6 +114,8 @@ Item {
                 id: surnameInput
                 height: 80
 
+                width: parent.width
+
                 anchors.left: parent.left
                 anchors.leftMargin: 5
 
@@ -116,6 +128,9 @@ Item {
 
             StyledInput {
                 id: peselInput
+                transformOrigin: Item.Center
+
+                width: parent.width
 
                 anchors.left: parent.left
                 anchors.leftMargin: 5
@@ -131,6 +146,8 @@ Item {
                 id: docIdInput
                 height: 80
 
+                width: parent.width
+
                 anchors.left: parent.left
                 anchors.leftMargin: 5
 
@@ -145,47 +162,42 @@ Item {
 
     }
 
-    PushButton {
-        id: addButton
+    Rectangle {
+        id: topMask
+        color: background.color
+        height: 80
+        anchors.right: parent.right
+        anchors.left: parent.left
+    }
 
-        objectName: "addButton"
 
+    Rectangle {
+        id: bottomMask
+        color: background.color
+        height: 80
         anchors.bottom: parent.bottom
-        anchors.bottomMargin: 20
-
-        anchors.right: scrollView.right
-        anchors.rightMargin: 5
-
-        width: 120
-        height: 40
-
-        font.family: "Verdana"
-        text: qsTr("Add Patient")
-        font.pointSize: 10
-
-        display: AbstractButton.TextOnly
-
-        onClicked: {
-            patientAdditionRequested(firstNameInput.inputText, secondNameInput.inputText, surnameInput.inputText, peselInput.inputText, docIdInput.inputText);
-        }
+        anchors.right: parent.right
+        anchors.left: parent.left
     }
 
     Text {
         id: tabTitle
 
-        x: 0
+        x: 302
         y: 33
-        width: 212
-        height: 43
+        width: 300
+        height: 60
 
         anchors.top: parent.top
-        anchors.topMargin: 30
+        anchors.topMargin: 20
 
-        anchors.left: parent.left
-        anchors.leftMargin: 30
+        anchors.right: parent.right
+        anchors.rightMargin: 20
 
         color: "#393e46"
         text: "Patients addition"
+        anchors.verticalCenter: topMask.verticalCenter
+
         font.family: "Verdana"
 
         font.weight: Font.Medium
@@ -193,6 +205,33 @@ Item {
         font.pixelSize: 30
 
         verticalAlignment: Text.AlignVCenter
+    }
+
+    PushButton {
+        id: addButton
+        y: 11351
+
+        objectName: "addButton"
+
+        anchors.bottom: bottomMask.bottom
+        anchors.bottomMargin: 20
+
+        anchors.top: bottomMask.top
+        anchors.topMargin: 20
+
+        anchors.right: scrollView.right
+
+        height: 40
+        width: 120
+
+        font.family: "Verdana"
+        text: qsTr("Add Patient")
+
+        display: AbstractButton.TextOnly
+
+        onClicked: {
+            patientAdditionRequested(firstNameInput.inputText, secondNameInput.inputText, surnameInput.inputText, peselInput.inputText, docIdInput.inputText);
+        }
     }
 
     InfoPopup {
@@ -205,6 +244,6 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.8999999761581421;height:480;width:640}
+    D{i:0;autoSize:true;height:480;width:640}
 }
 ##^##*/
