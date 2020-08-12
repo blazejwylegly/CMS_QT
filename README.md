@@ -12,3 +12,5 @@ Technologies used:
 - QML
 
 Project was created for academic purposes, therefore it's not finished.
+
+![alt text](https://github.com/bwylegly/CMS_QT/blob/master/home.jpg?raw=true)
