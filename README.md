@@ -12,6 +12,6 @@ Technologies used:
 - QML
 
 
-![alt text](https://github.com/bwylegly/CMS_QT/blob/master/home.jpg?raw=true)
+![alt text](https://github.com/bwylegly/CMS_QT/blob/master/screenshots/image_concat.png?raw=true)
 
 Project still under development.
